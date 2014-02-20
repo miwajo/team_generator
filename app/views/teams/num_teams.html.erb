@@ -1,0 +1,5 @@
+<%= form_tag("/teams/randomize", method: "post") do %>
+  <%= label_tag(:num, "How many teams?") %>
+  <%= text_field_tag(:num) %>
+  <%= submit_tag("Do it!") %>
+<% end %>

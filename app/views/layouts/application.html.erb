@@ -7,7 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<h3>Team Generator</h3>
+<%= link_to 'STUDENTS', students_path %> |
+<%= link_to 'TEAMS', teams_path %> |
+<%= link_to 'TEAM SET-UP', teams_num_teams_path %> 
+<br><br>
 <%= yield %>
 
 </body>

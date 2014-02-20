@@ -10,6 +10,7 @@
       <th></th>
       <th></th>
       <th></th>
+
     </tr>
   </thead>
 
@@ -23,6 +24,8 @@
         <td><%= link_to 'Show', student %></td>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>
         <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+
       </tr>
     <% end %>
   </tbody>
@@ -31,3 +34,4 @@
 <br>
 
 <%= link_to 'New Student', new_student_path %>
+<%= link_to 'Remove all students', students_delete_all_path, method: :delete, data: { confirm: 'Are you like totally sure you wanna delete ALL students?' } %>

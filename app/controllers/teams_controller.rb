@@ -1,11 +1,29 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
 
+  include TeamsHelper
+
   # GET /teams
   # GET /teams.json
   def index
     @teams = Team.all
   end
+
+  def num_teams
+  end
+
+  def randomize
+
+    #render :text => params[:num]
+
+
+    # calling a "helper method" in the helpers folder (/app/helpers/teams_helper)
+    # this is a good way of getting "worker" code out of the controller
+    create_teams
+  end
+
+
+
 
   # GET /teams/1
   # GET /teams/1.json
@@ -61,6 +79,17 @@ class TeamsController < ApplicationController
     end
   end
 
+   # DELETE /students/1
+  # DELETE /students/1.json
+  def delete_all
+    Team.delete_all
+
+    respond_to do |format|
+      format.html { redirect_to teams_url }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_team
@@ -71,4 +100,6 @@ class TeamsController < ApplicationController
     def team_params
       params.require(:team).permit(:student_id, :is_leader, :team_id)
     end
+
+   
 end

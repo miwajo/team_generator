@@ -1,7 +1,20 @@
 TeamGenerator::Application.routes.draw do
-  resources :teams
+
+
+  root to: "welcome#index"
+
+  post "/teams/randomize"
+
+  get "/teams/num_teams"
+
+  delete "/students/delete_all"
+  delete "/teams/delete_all"
+
+  resources :teams 
 
   resources :students
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

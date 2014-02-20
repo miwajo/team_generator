@@ -60,6 +60,16 @@ class StudentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  # DELETE /students/1
+  # DELETE /students/1.json
+  def delete_all
+    Student.delete_all
+
+    respond_to do |format|
+      format.html { redirect_to students_url }
+      format.json { head :no_content }
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
